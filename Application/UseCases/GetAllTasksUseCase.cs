@@ -1,0 +1,13 @@
+using TaskManager.Domain.Entities;
+using TaskManager.Domain.Interfaces;
+
+namespace TaskManager.Application.UseCases;
+
+public class GetAllTasksUseCase
+{
+    private readonly ITaskRepository _repository;
+
+    public GetAllTasksUseCase(ITaskRepository repository) => _repository = repository;
+
+    public List<TaskItem> Execute() => _repository.GetAll();
+}
